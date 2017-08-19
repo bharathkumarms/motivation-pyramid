@@ -27,10 +27,13 @@ import { TutorialPage } from '../pages/tutorial/tutorial';
 import { SupportPage } from '../pages/support/support';
 
 import { ConferenceData } from '../providers/conference-data';
+import { QuoteData } from '../providers/quote-data';
 import { UserData } from '../providers/user-data';
 
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireAuthModule} from 'angularfire2/auth';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
+
 import {FIREBASE_CONFIG} from './app.config.firebase';
 
 @NgModule({
@@ -56,6 +59,7 @@ import {FIREBASE_CONFIG} from './app.config.firebase';
     HttpModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireAuthModule,
+    AngularFireDatabaseModule,
     IonicModule.forRoot(ConferenceApp, {}, {
       links: [
         { component: TabsPage, name: 'TabsPage', segment: 'tabs-page' },
@@ -96,6 +100,7 @@ import {FIREBASE_CONFIG} from './app.config.firebase';
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     ConferenceData,
+    QuoteData,
     UserData,
     InAppBrowser,
     SplashScreen

@@ -17,6 +17,7 @@ import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
 import { SupportPage } from '../pages/support/support';
 
 import { ConferenceData } from '../providers/conference-data';
+import { QuoteData } from '../providers/quote-data';
 import { UserData } from '../providers/user-data';
 
 export interface PageInterface {
@@ -65,6 +66,7 @@ export class ConferenceApp {
     public menu: MenuController,
     public platform: Platform,
     public confData: ConferenceData,
+    public quoteData: QuoteData,
     public storage: Storage,
     public splashScreen: SplashScreen
   ) {

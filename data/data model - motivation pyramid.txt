@@ -10,11 +10,11 @@ title:
 details:
 url:
 updatedon:
-userid:
+username:
 }
 ----------
 favorites{
-userid:
+username:
 quoteid:
 }
 ----------
@@ -26,5 +26,5 @@ details:
 email:
 number:
 updatedon:
-userid:
+username:
 }
