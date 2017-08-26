@@ -20,6 +20,7 @@ import { SupportPage } from '../pages/support/support';
 
 import { ConferenceData } from '../providers/conference-data';
 import { QuoteData } from '../providers/quote-data';
+import { FavoriteData } from '../providers/favorite-data';
 import { UserData } from '../providers/user-data';
 
 export interface PageInterface {
@@ -69,6 +70,7 @@ export class ConferenceApp {
     public platform: Platform,
     public confData: ConferenceData,
     public quoteData: QuoteData,
+    public favoriteData: FavoriteData,
     public storage: Storage,
     public splashScreen: SplashScreen
   ) {

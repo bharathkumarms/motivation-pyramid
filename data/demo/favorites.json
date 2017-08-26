@@ -1,0 +1,15 @@
+{
+"favorite": [{
+    "username":"v.bharathkumar@gmail.com",
+    "favorites":[
+        {"quoteid":1},
+        {"quoteid":2}
+    ]
+},
+{
+    "username":"test@gmail.com",
+    "favorites":[
+        {"quoteid":3}
+    ]
+}
+]}

@@ -3,6 +3,7 @@ import { Component/*, ViewChild*/ } from '@angular/core';
 import { IonicPage, AlertController, App, ItemSliding, /*FabContainer, List,*/ ModalController, NavController, NavParams, ToastController, LoadingController, Refresher } from 'ionic-angular';
 
 import { QuoteData } from '../../providers/quote-data';
+import { FavoriteData } from '../../providers/favorite-data';
 import { UserData } from '../../providers/user-data';
 
 @IonicPage()
@@ -25,16 +26,23 @@ export class QuotePage {
     public navParams: NavParams,
     public toastCtrl: ToastController,
     public quoteData: QuoteData,
+    public favoriteData:FavoriteData,
     public user: UserData,
   ) {
-    this.updateQuote();
+    this.updateQuote(); 
+    this.getFavorites();
   }
-
   /*ionViewDidLoad() {
     this.app.setTitle('Quote');
     this.updateQuote();
   }*/
-
+  getFavorites() {
+    this.user.getUsername().then((username) => {
+      this.favoriteData.getFavorite(username).subscribe((data) => {
+       console.log(data);
+      });
+    });
+  }
    updateQuote() {
     this.loader = this.loadingCtrl.create({
       content: 'Getting latest entries...'});
@@ -113,7 +121,6 @@ export class QuotePage {
   doRefresh(refresher: Refresher) {
     
     this.quoteData.getQuotes().subscribe((data: any) => {
-      console.log(data)
       this.quotes = data;
       refresher.complete();
       const toast = this.toastCtrl.create({

@@ -30,6 +30,7 @@ import { SupportPage } from '../pages/support/support';
 
 import { ConferenceData } from '../providers/conference-data';
 import { QuoteData } from '../providers/quote-data';
+import { FavoriteData } from '../providers/favorite-data';
 import { UserData } from '../providers/user-data';
 
 import {AngularFireModule} from 'angularfire2';
@@ -106,6 +107,7 @@ import {FIREBASE_CONFIG} from './app.config.firebase';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     ConferenceData,
     QuoteData,
+    FavoriteData,
     UserData,
     InAppBrowser,
     SplashScreen
