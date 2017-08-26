@@ -16,7 +16,9 @@ import { PopoverPage } from '../pages/about-popover/about-popover';
 import { AccountPage } from '../pages/account/account';
 import { LoginPage } from '../pages/login/login';
 import { MapPage } from '../pages/map/map';
+//TODO: Remove SchedulePage
 import { SchedulePage } from '../pages/schedule/schedule';
+import { QuotePage } from '../pages/quote/quote';
 import { ScheduleFilterPage } from '../pages/schedule-filter/schedule-filter';
 import { SessionDetailPage } from '../pages/session-detail/session-detail';
 import { SignupPage } from '../pages/signup/signup';
@@ -45,6 +47,7 @@ import {FIREBASE_CONFIG} from './app.config.firebase';
     MapPage,
     PopoverPage,
     SchedulePage,
+    QuotePage,
     ScheduleFilterPage,
     SessionDetailPage,
     SignupPage,
@@ -64,6 +67,7 @@ import {FIREBASE_CONFIG} from './app.config.firebase';
       links: [
         { component: TabsPage, name: 'TabsPage', segment: 'tabs-page' },
         { component: SchedulePage, name: 'Schedule', segment: 'schedule' },
+        { component: QuotePage, name: 'Quote', segment: 'quote' },
         { component: SessionDetailPage, name: 'SessionDetail', segment: 'sessionDetail/:sessionId' },
         { component: ScheduleFilterPage, name: 'ScheduleFilter', segment: 'scheduleFilter' },
         { component: SpeakerListPage, name: 'SpeakerList', segment: 'speakerList' },
@@ -87,6 +91,7 @@ import {FIREBASE_CONFIG} from './app.config.firebase';
     LoginPage,
     MapPage,
     PopoverPage,
+    QuotePage,
     SchedulePage,
     ScheduleFilterPage,
     SessionDetailPage,
