@@ -1,12 +1,9 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component/*, ViewChild*/ } from '@angular/core';
 
-/**
- * Generated class for the QuotePage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { IonicPage, AlertController, App, ItemSliding, /*FabContainer, List,*/ ModalController, NavController, NavParams, ToastController, LoadingController, Refresher } from 'ionic-angular';
+
+import { QuoteData } from '../../providers/quote-data';
+import { UserData } from '../../providers/user-data';
 
 @IonicPage()
 @Component({
@@ -15,11 +12,117 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class QuotePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  quotes:any[];
+  segment = 'all';
+  loader:any;
+
+  constructor(
+    public alertCtrl: AlertController,
+    public app: App,
+    public loadingCtrl: LoadingController,
+    public modalCtrl: ModalController,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public toastCtrl: ToastController,
+    public quoteData: QuoteData,
+    public user: UserData,
+  ) {
+    this.updateQuote();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad QuotePage');
+  /*ionViewDidLoad() {
+    this.app.setTitle('Quote');
+    this.updateQuote();
+  }*/
+
+   updateQuote() {
+    this.loader = this.loadingCtrl.create({
+      content: 'Getting latest entries...'});
+
+    this.loader.present().then(() => {
+      this.quoteData.getQuotes().subscribe((data) => {
+       this.quotes = data;
+      });
+      this.loader.dismiss();
+    });
+   }
+
+  //Start: Add/Remove Favorites
+
+
+  addFavorite(slidingItem: ItemSliding, quoteData: any) {
+
+    if (this.user.hasFavorite(quoteData.name)) {
+      // woops, they already favorited it! What shall we do!?
+      // prompt them to remove it
+      this.removeFavorite(slidingItem, quoteData, 'Favorite already added');
+    } else {
+      // remember this session as a user favorite
+      this.user.addFavorite(quoteData.name);
+
+      // create an alert instance
+      let alert = this.alertCtrl.create({
+        title: 'Favorite Added',
+        buttons: [{
+          text: 'OK',
+          handler: () => {
+            // close the sliding item
+            slidingItem.close();
+          }
+        }]
+      });
+      // now present the alert on top of all other content
+      alert.present();
+    }
+
   }
 
+  removeFavorite(slidingItem: ItemSliding, quoteData: any, title: string) {
+    let alert = this.alertCtrl.create({
+      title: title,
+      message: 'Would you like to remove this session from your favorites?',
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: () => {
+            // they clicked the cancel button, do not remove the session
+            // close the sliding item and hide the option buttons
+            slidingItem.close();
+          }
+        },
+        {
+          text: 'Remove',
+          handler: () => {
+            // they want to remove this session from their favorites
+            this.user.removeFavorite(quoteData.name);
+            this.updateQuote();
+
+            // close the sliding item and hide the option buttons
+            slidingItem.close();
+          }
+        }
+      ]
+    });
+    // now present the alert on top of all other content
+    alert.present();
+  }
+  //End: Add/Remove Favorites
+
+  //Start: Refresh
+
+  doRefresh(refresher: Refresher) {
+    
+    this.quoteData.getQuotes().subscribe((data: any) => {
+      console.log(data)
+      this.quotes = data;
+      refresher.complete();
+      const toast = this.toastCtrl.create({
+          message: 'Quotes have been updated.',
+          duration: 3000
+        });
+        toast.present();
+    });
+  }
+
+  //End: Refresh
 }
