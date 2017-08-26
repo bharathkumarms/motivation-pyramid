@@ -6,6 +6,8 @@ import { QuoteData } from '../../providers/quote-data';
 import { FavoriteData } from '../../providers/favorite-data';
 import { UserData } from '../../providers/user-data';
 
+//import * as _ from 'lodash';
+
 @IonicPage()
 @Component({
   selector: 'page-quote',
@@ -14,6 +16,7 @@ import { UserData } from '../../providers/user-data';
 export class QuotePage {
 
   quotes:any[];
+  favorite:any;
   segment = 'all';
   loader:any;
 
@@ -39,7 +42,7 @@ export class QuotePage {
   getFavorites() {
     this.user.getUsername().then((username) => {
       this.favoriteData.getFavorite(username).subscribe((data) => {
-       console.log(data);
+       this.favorite = data;
       });
     });
   }
@@ -50,6 +53,14 @@ export class QuotePage {
     this.loader.present().then(() => {
       this.quoteData.getQuotes().subscribe((data) => {
        this.quotes = data;
+       
+        if(this.segment == 'favorites'){
+         this.favorite.forEach(function(value:any){
+            //TODO: Loop favorites and retain quotes
+            console.log(value);
+         })
+        }
+
       });
       this.loader.dismiss();
     });
