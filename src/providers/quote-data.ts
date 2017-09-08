@@ -6,6 +6,11 @@ export class QuoteData {
    constructor(private _af: AngularFireDatabase) {}
 
    public getQuotes(): FirebaseListObservable<any[]>{
-      return this._af.list('/quote');
+       var people = this._af.list('quote', {
+        query: {
+            orderByChild: 'title'
+        }
+      });
+      return people;
    }
 }
