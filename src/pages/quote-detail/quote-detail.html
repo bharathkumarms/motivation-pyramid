@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title *ngIf="quote">{{quote.title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="quote">
+    <h1>{{quote.details}}</h1>
+    <p>
+      {{quote.otherurl}} - {{quote.quote}}
+    </p>
+    <p>{{quote.videourl}}</p>
+    <p>{{quote.websiteurl}}</p>
+  </div>
+</ion-content>

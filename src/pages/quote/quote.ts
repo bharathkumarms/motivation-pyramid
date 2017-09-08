@@ -7,6 +7,7 @@ import { FavoriteData } from '../../providers/favorite-data';
 import { UserData } from '../../providers/user-data';
 
 import { SocialSharing } from '@ionic-native/social-sharing'; 
+import { QuoteDetailPage } from '../quote-detail/quote-detail';
 
 //import * as _ from 'lodash';
 
@@ -165,10 +166,7 @@ export class QuotePage {
   }
 
   goToQuoteDetail(quoteData: any) {
-    // go to the session detail page
-    // and pass in the session data
-    console.log(quoteData)
-    //this.navCtrl.push(SessionDetailPage, { sessionId: sessionData.id, name: sessionData.name });
+    this.navCtrl.push(QuoteDetailPage, { quoteId: quoteData.id });
   }
 
   //End: Refresh

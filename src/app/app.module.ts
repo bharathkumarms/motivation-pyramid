@@ -21,6 +21,7 @@ import { SchedulePage } from '../pages/schedule/schedule';
 import { QuotePage } from '../pages/quote/quote';
 import { ScheduleFilterPage } from '../pages/schedule-filter/schedule-filter';
 import { SessionDetailPage } from '../pages/session-detail/session-detail';
+import { QuoteDetailPage } from '../pages/quote-detail/quote-detail';
 import { SignupPage } from '../pages/signup/signup';
 import { SpeakerDetailPage } from '../pages/speaker-detail/speaker-detail';
 import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
@@ -53,6 +54,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     QuotePage,
     ScheduleFilterPage,
     SessionDetailPage,
+    QuoteDetailPage,
     SignupPage,
     SpeakerDetailPage,
     SpeakerListPage,
@@ -72,6 +74,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
         { component: SchedulePage, name: 'Schedule', segment: 'schedule' },
         { component: QuotePage, name: 'Quote', segment: 'quote' },
         { component: SessionDetailPage, name: 'SessionDetail', segment: 'sessionDetail/:sessionId' },
+        { component: QuoteDetailPage, name: 'QuoteDetail', segment: 'quoteDetail/:quoteId' },
         { component: ScheduleFilterPage, name: 'ScheduleFilter', segment: 'scheduleFilter' },
         { component: SpeakerListPage, name: 'SpeakerList', segment: 'speakerList' },
         { component: SpeakerDetailPage, name: 'SpeakerDetail', segment: 'speakerDetail/:speakerId' },
@@ -98,6 +101,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     SchedulePage,
     ScheduleFilterPage,
     SessionDetailPage,
+    QuoteDetailPage,
     SignupPage,
     SpeakerDetailPage,
     SpeakerListPage,
