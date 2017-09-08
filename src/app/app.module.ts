@@ -39,6 +39,8 @@ import {AngularFireDatabaseModule} from 'angularfire2/database';
 
 import {FIREBASE_CONFIG} from './app.config.firebase';
 
+import { SocialSharing } from '@ionic-native/social-sharing';
+
 @NgModule({
   declarations: [
     ConferenceApp,
@@ -110,7 +112,8 @@ import {FIREBASE_CONFIG} from './app.config.firebase';
     FavoriteData,
     UserData,
     InAppBrowser,
-    SplashScreen
+    SplashScreen,
+    SocialSharing
   ]
 })
 export class AppModule { }
