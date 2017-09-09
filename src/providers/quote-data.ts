@@ -6,11 +6,21 @@ export class QuoteData {
    constructor(private _af: AngularFireDatabase) {}
 
    public getQuotes(): FirebaseListObservable<any[]>{
-       var people = this._af.list('quote', {
+       var quotes = this._af.list('quote', {
         query: {
             orderByChild: 'title'
         }
       });
-      return people;
+      return quotes;
    }
+
+   public getQuote(id:any): FirebaseListObservable<any[]>{
+    var quote = this._af.list('quote', {
+        query: {
+        orderByChild: 'id',
+        equalTo: id
+        }
+    });
+    return quote;
+    }
 }

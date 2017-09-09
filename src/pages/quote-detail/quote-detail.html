@@ -6,11 +6,21 @@
 
 <ion-content padding>
   <div *ngIf="quote">
-    <h1>{{quote.details}}</h1>
+    <h1>{{quote.quote}}</h1>
     <p>
-      {{quote.otherurl}} - {{quote.quote}}
+       {{quote.details}}
     </p>
-    <p>{{quote.videourl}}</p>
-    <p>{{quote.websiteurl}}</p>
+      <ion-card>
+        <ion-card-header>
+          More Details & Videos
+        </ion-card-header>
+        <ion-card-content>
+          <p><a [href]="quote.otherurl" target="_blank">About Author</a></p>
+          <p><a [href]="quote.videourl" target="_blank">Watch In Youtube</a></p>
+          <p><a [href]="quote.websiteurl" target="_blank">Website</a></p>
+        </ion-card-content>
+      </ion-card>
+
+      
   </div>
 </ion-content>

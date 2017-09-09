@@ -19,7 +19,7 @@ export class QuoteDetailPage {
   ) {}
 
   ionViewWillEnter() {
-    this.quoteData.getQuotes().subscribe((data) => {
+    this.quoteData.getQuote(this.navParams.data.quoteId).subscribe((data) => {
        this.quote = data[0];
       });
   }
