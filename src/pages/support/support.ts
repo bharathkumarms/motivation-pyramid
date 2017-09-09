@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { AlertController, NavController, ToastController } from 'ionic-angular';
+import { SupportData } from '../../providers/support-data';
 
 
 @Component({
@@ -16,14 +17,15 @@ export class SupportPage {
   constructor(
     public navCtrl: NavController,
     public alertCtrl: AlertController,
-    public toastCtrl: ToastController
+    public toastCtrl: ToastController,
+    public supportData: SupportData
   ) {
 
   }
 
   ionViewDidEnter() {
     let toast = this.toastCtrl.create({
-      message: 'This does not actually send a support request.',
+      message: 'Optional: Please enter your contact details in the message.',
       duration: 3000
     });
     toast.present();
@@ -31,7 +33,7 @@ export class SupportPage {
 
   submit(form: NgForm) {
     this.submitted = true;
-
+    this.supportData.addSupportMessage(this.supportMessage);
     if (form.valid) {
       this.supportMessage = '';
       this.submitted = false;

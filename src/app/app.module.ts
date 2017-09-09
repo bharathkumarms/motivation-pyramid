@@ -32,6 +32,7 @@ import { SupportPage } from '../pages/support/support';
 
 import { ConferenceData } from '../providers/conference-data';
 import { QuoteData } from '../providers/quote-data';
+import { SupportData } from '../providers/support-data';
 import { FavoriteData } from '../providers/favorite-data';
 import { UserData } from '../providers/user-data';
 
@@ -117,6 +118,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     ConferenceData,
     QuoteData,
+    SupportData,
     FavoriteData,
     UserData,
     InAppBrowser,
