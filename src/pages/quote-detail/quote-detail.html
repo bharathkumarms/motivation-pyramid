@@ -7,7 +7,7 @@
 <ion-content padding>
   <div *ngIf="quote">
     <h1>{{quote.quote}}</h1>
-    <p>
+    <p *ngIf="quote.details">
        {{quote.details}}
     </p>
       <ion-card>
@@ -15,9 +15,9 @@
           More Details & Videos
         </ion-card-header>
         <ion-card-content>
-          <p><a [href]="quote.otherurl" target="_blank">About Author</a></p>
-          <p><a [href]="quote.videourl" target="_blank">Watch In Youtube</a></p>
-          <p><a [href]="quote.websiteurl" target="_blank">Website</a></p>
+          <p *ngIf="quote.otherurl"><a [href]="quote.otherurl" target="_blank">About Author</a></p>
+          <p *ngIf="quote.videourl"><a [href]="quote.videourl" target="_blank">Watch In Youtube</a></p>
+          <p *ngIf="quote.websiteurl"><a [href]="quote.websiteurl" target="_blank">Website</a></p>
         </ion-card-content>
       </ion-card>
 
