@@ -8,13 +8,15 @@ import { Storage } from '@ionic/storage';
 import { AboutPage } from '../pages/about/about';
 import { AccountPage } from '../pages/account/account';
 import { LoginPage } from '../pages/login/login';
-import { MapPage } from '../pages/map/map';
+//import { MapPage } from '../pages/map/map';
 import { SignupPage } from '../pages/signup/signup';
 import { TabsPage } from '../pages/tabs-page/tabs-page';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 //TODO: Remove SchedulePage
 //import { SchedulePage } from '../pages/schedule/schedule';
 import { QuotePage } from '../pages/quote/quote';
+import { MeetupPage } from '../pages/meetup/meetup';
+
 import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
 import { SupportPage } from '../pages/support/support';
 
@@ -48,7 +50,7 @@ export class ConferenceApp {
   appPages: PageInterface[] = [
     { title: 'Quote', name: 'TabsPage', component: TabsPage, tabComponent: QuotePage, index: 0, icon: 'quote' },
     { title: 'Speakers', name: 'TabsPage', component: TabsPage, tabComponent: SpeakerListPage, index: 1, icon: 'contacts' },
-    { title: 'Map', name: 'TabsPage', component: TabsPage, tabComponent: MapPage, index: 2, icon: 'map' },
+    { title: 'Meetup', name: 'TabsPage', component: TabsPage, tabComponent: MeetupPage, index: 2, icon: 'calendar' },
     { title: 'About', name: 'TabsPage', component: TabsPage, tabComponent: AboutPage, index: 3, icon: 'information-circle' }
   ];
   loggedInPages: PageInterface[] = [
