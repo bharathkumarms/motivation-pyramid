@@ -17,11 +17,13 @@ import { TutorialPage } from '../pages/tutorial/tutorial';
 import { QuotePage } from '../pages/quote/quote';
 import { MeetupPage } from '../pages/meetup/meetup';
 
-import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
+//import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
+import { MotivationSpeakerListPage } from '../pages/motivation-speaker-list/motivation-speaker-list';
 import { SupportPage } from '../pages/support/support';
 
 import { ConferenceData } from '../providers/conference-data';
 import { QuoteData } from '../providers/quote-data';
+import { MotivationSpeakerData } from '../providers/motivation-speaker-data';
 import { SupportData } from '../providers/support-data';
 import { FavoriteData } from '../providers/favorite-data';
 import { UserData } from '../providers/user-data';
@@ -50,7 +52,7 @@ export class ConferenceApp {
   // the login page disables the left menu
   appPages: PageInterface[] = [
     { title: 'Quote', name: 'TabsPage', component: TabsPage, tabComponent: QuotePage, index: 0, icon: 'quote' },
-    { title: 'Speakers', name: 'TabsPage', component: TabsPage, tabComponent: SpeakerListPage, index: 1, icon: 'contacts' },
+    { title: 'Speakers', name: 'TabsPage', component: TabsPage, tabComponent: MotivationSpeakerListPage, index: 1, icon: 'contacts' },
     { title: 'Meetup', name: 'TabsPage', component: TabsPage, tabComponent: MeetupPage, index: 2, icon: 'calendar' },
     { title: 'About', name: 'TabsPage', component: TabsPage, tabComponent: AboutPage, index: 3, icon: 'information-circle' }
   ];
@@ -73,6 +75,7 @@ export class ConferenceApp {
     public platform: Platform,
     public confData: ConferenceData,
     public quoteData: QuoteData,
+    public motivationSpeakerData: MotivationSpeakerData,
     public supportData: SupportData,
     public favoriteData: FavoriteData,
     public storage: Storage,

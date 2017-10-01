@@ -26,12 +26,14 @@ import { QuoteDetailPage } from '../pages/quote-detail/quote-detail';
 import { SignupPage } from '../pages/signup/signup';
 import { SpeakerDetailPage } from '../pages/speaker-detail/speaker-detail';
 import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
+import { MotivationSpeakerListPage } from '../pages/motivation-speaker-list/motivation-speaker-list';
 import { TabsPage } from '../pages/tabs-page/tabs-page';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { SupportPage } from '../pages/support/support';
 
 import { ConferenceData } from '../providers/conference-data';
 import { QuoteData } from '../providers/quote-data';
+import { MotivationSpeakerData } from '../providers/motivation-speaker-data';
 import { SupportData } from '../providers/support-data';
 import { FavoriteData } from '../providers/favorite-data';
 import { UserData } from '../providers/user-data';
@@ -61,6 +63,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     SignupPage,
     SpeakerDetailPage,
     SpeakerListPage,
+    MotivationSpeakerListPage,
     TabsPage,
     TutorialPage,
     SupportPage
@@ -110,6 +113,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     SignupPage,
     SpeakerDetailPage,
     SpeakerListPage,
+    MotivationSpeakerListPage,
     TabsPage,
     TutorialPage,
     SupportPage
@@ -118,6 +122,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     ConferenceData,
     QuoteData,
+    MotivationSpeakerData,
     SupportData,
     FavoriteData,
     UserData,
