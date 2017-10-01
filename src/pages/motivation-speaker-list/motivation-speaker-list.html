@@ -16,24 +16,18 @@
 
           <ion-card class="speaker-card">
             <ion-card-header>
-              <button ion-item detail-none (click)="goToSpeakerDetail(speaker)">
+              <button ion-item detail-none>
                 <ion-avatar item-start>
-                  <img [src]="speaker.profilePic" alt="Speaker profile pic">
+                  <!--<img [src]="speaker.profilePic" alt="Speaker profile pic">-->
+                  <ion-icon class="speaker-icon" *ngIf="speaker.gender =='M'" name="man"></ion-icon>
+                  <ion-icon class="speaker-icon" *ngIf="speaker.gender =='F'" name="woman"></ion-icon>
                 </ion-avatar>
                 {{speaker.name}}
               </button>
             </ion-card-header>
 
             <ion-card-content class="outer-content">
-              <ion-list>
-                <button ion-item *ngFor="let session of speaker.sessions" (click)="goToSessionDetail(session)">
-                  <h3>{{session.name}}</h3>
-                </button>
-
-                <button ion-item (click)="goToSpeakerDetail(speaker)">
-                  <h3>About {{speaker.name}}</h3>
-                </button>
-              </ion-list>
+              {{speaker.shortintro}}
             </ion-card-content>
 
             <ion-row no-padding>
