@@ -1,25 +1,39 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
+import { AddMeetupPage } from '../meetup/add-meetup';
 
-/**
- * Generated class for the MeetupPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-
-@IonicPage()
 @Component({
   selector: 'page-meetup',
-  templateUrl: 'meetup.html',
+  templateUrl: 'meetup.html'
 })
 export class MeetupPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  meetupList: FirebaseListObservable<any>;
+  constructor(public navCtrl: NavController, public af: AngularFireDatabase, public loadingCtrl: LoadingController, public params: NavParams) {
+    let loading = this.loadingCtrl.create({
+      content: "Load Data...",
+      duration: 3000,
+      dismissOnPageChange: true
+    });
+    loading.present();
+    this.meetupList = af.list('/meetups');
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MeetupPage');
+  addMeetup() {
+    this.navCtrl.push(AddMeetupPage);
   }
 
+  editMeetup(meetup: any) {
+    this.navCtrl.push(AddMeetupPage, {
+      key: meetup.$key,
+      name: meetup.name,
+      address: meetup.address,
+      phone: meetup.phone,
+      city: meetup.city
+    });
+  }
+
+  deleteMeetup(meetup: any) {
+    this.meetupList.remove(meetup);
+  }
 }

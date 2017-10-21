@@ -20,6 +20,7 @@ import { MapPage } from '../pages/map/map';
 import { SchedulePage } from '../pages/schedule/schedule';
 import { QuotePage } from '../pages/quote/quote';
 import { MeetupPage } from '../pages/meetup/meetup';
+import { AddMeetupPage } from '../pages/meetup/add-meetup';
 import { ScheduleFilterPage } from '../pages/schedule-filter/schedule-filter';
 import { SessionDetailPage } from '../pages/session-detail/session-detail';
 import { QuoteDetailPage } from '../pages/quote-detail/quote-detail';
@@ -59,6 +60,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     ScheduleFilterPage,
     SessionDetailPage,
     MeetupPage,
+    AddMeetupPage,
     QuoteDetailPage,
     SignupPage,
     SpeakerDetailPage,
@@ -86,6 +88,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
         { component: SpeakerDetailPage, name: 'SpeakerDetail', segment: 'speakerDetail/:speakerId' },
         { component: MapPage, name: 'Map', segment: 'map' },
         { component: MeetupPage, name: 'Meetup', segment: 'meetup' },
+        { component: AddMeetupPage, name: 'AddMeetup', segment: 'addMeetup' },
         { component: AboutPage, name: 'About', segment: 'about' },
         { component: TutorialPage, name: 'Tutorial', segment: 'tutorial' },
         { component: SupportPage, name: 'SupportPage', segment: 'support' },
@@ -104,6 +107,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     LoginPage,
     MapPage,
     MeetupPage,
+    AddMeetupPage,
     PopoverPage,
     QuotePage,
     SchedulePage,

@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Add Meetup</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="add-meetup">
+    <input type="hidden" [(ngModel)]="meetup.id" />
+    <ion-item>
+        <ion-label stacked>Name</ion-label>
+        <ion-input [(ngModel)]="meetup.name" type="text" placeholder="Fill yor first and last name"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label stacked>Address</ion-label>
+        <ion-input [(ngModel)]="meetup.address" type="text" placeholder="Fill your full address"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label stacked>Phone</ion-label>
+        <ion-input [(ngModel)]="meetup.phone" type="text" placeholder="Fill your phone number"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label stacked>City</ion-label>
+        <ion-input [(ngModel)]="meetup.city" type="text" placeholder="Fill your city"></ion-input>
+    </ion-item>
+    <button ion-button color="primary" (click)="addMeetup(meetup.id, meetup.name, meetup.address, meetup.phone, meetup.city)">
+        <span *ngIf="meetup.id">Update Meetup</span>
+        <span *ngIf="!meetup.id">Add Meetup</span>
+    </button>
+</ion-content>
