@@ -46,19 +46,27 @@ export class QuotePage {
   ) {
     //TODO: Remove this commented line after checking infinite scroll issue
     //this.updateQuote(); 
-    this.getFavorites();
+    //this.getFavorites();
+
+    this.loader = this.loadingCtrl.create({
+      content: 'Getting latest entries...'
+    });
 
     this.getData();
 
-    this.itemRef.forEach((itemList: any) => {
-      let items: any = [];
-      itemList.forEach((item: any) => {
-        items.push(item);
-        return false;
+    this.loader.present().then(() => {
+
+      this.itemRef.forEach((itemList: any) => {
+        let items: any = [];
+        itemList.forEach((item: any) => {
+          items.push(item);
+          return false;
+        });
+        this.itemList = items;
+        this.loadeditemList = items;
       });
-      this.itemList = items;
-      this.loadeditemList = items;
     });
+    this.loader.dismiss();
   }
 
   getData() {
