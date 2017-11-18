@@ -6,8 +6,10 @@ import { QuoteData } from '../../providers/quote-data';
 import { FavoriteData } from '../../providers/favorite-data';
 import { UserData } from '../../providers/user-data';
 
-import { SocialSharing } from '@ionic-native/social-sharing'; 
+import { SocialSharing } from '@ionic-native/social-sharing';
 import { QuoteDetailPage } from '../quote-detail/quote-detail';
+
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 //import * as _ from 'lodash';
 
@@ -18,10 +20,15 @@ import { QuoteDetailPage } from '../quote-detail/quote-detail';
 })
 export class QuotePage {
 
-  quotes:any[];
-  favorite:any;
+  quotes: any[];
+  favorite: any;
   segment = 'all';
-  loader:any;
+  loader: any;
+
+  limit: number = 10;
+  itemRef: FirebaseListObservable<any[]>;
+  itemList: any;
+  loadeditemList: any;
 
   constructor(
     public alertCtrl: AlertController,
@@ -32,47 +39,89 @@ export class QuotePage {
     public navParams: NavParams,
     public toastCtrl: ToastController,
     public quoteData: QuoteData,
-    public favoriteData:FavoriteData,
+    public favoriteData: FavoriteData,
     public user: UserData,
-    public socialSharing: SocialSharing
+    public socialSharing: SocialSharing,
+    private firebase: AngularFireDatabase
   ) {
-    this.updateQuote(); 
+    //TODO: Remove this commented line after checking infinite scroll issue
+    //this.updateQuote(); 
     this.getFavorites();
+
+    this.getData();
+
+    this.itemRef.forEach((itemList: any) => {
+      let items: any = [];
+      itemList.forEach((item: any) => {
+        items.push(item);
+        return false;
+      });
+      this.itemList = items;
+      this.loadeditemList = items;
+    });
   }
+
+  getData() {
+    this.itemRef = this.firebase.list('quote', {
+      query: {
+        orderByChild: 'title',
+        limitToFirst: this.limit
+      }
+    });
+  }
+
+  onInfiniteScroll($event: any) {
+    this.limit += 10;
+    this.getData();
+    this.itemRef.forEach((itemList: any) => {
+      let items: any = [];
+      itemList.forEach((item: any) => {
+        items.push(item);
+        return false;
+      });
+
+      this.itemList = items;
+      this.loadeditemList = items;
+
+      $event.state = "closed";
+    });
+  }
+
+  //TODO: Remove this commented line after checking infinite scroll issue
   /*ionViewDidLoad() {
     this.app.setTitle('Quote');
     this.updateQuote();
   }*/
+
   getFavorites() {
     this.user.getUsername().then((username) => {
       this.favoriteData.getFavorite(username).subscribe((data) => {
-       this.favorite = data;
+        this.favorite = data;
       });
     });
   }
-   updateQuote() {
+  updateQuote() {
     this.loader = this.loadingCtrl.create({
-      content: 'Getting latest entries...'});
+      content: 'Getting latest entries...'
+    });
 
     this.loader.present().then(() => {
       this.quoteData.getQuotes().subscribe((data) => {
-       this.quotes = data;
-       
-        if(this.segment == 'favorites'){
-         this.favorite.forEach(function(value:any){
+        this.quotes = data;
+
+        if (this.segment == 'favorites') {
+          this.favorite.forEach(function (value: any) {
             //TODO: Loop favorites and retain quotes
             console.log(value);
-         })
+          })
         }
 
       });
       this.loader.dismiss();
     });
-   }
+  }
 
   //Start: Add/Remove Favorites
-
-
   addFavorite(slidingItem: ItemSliding, quoteData: any) {
 
     if (this.user.hasFavorite(quoteData.name)) {
@@ -97,7 +146,6 @@ export class QuotePage {
       // now present the alert on top of all other content
       alert.present();
     }
-
   }
 
   removeFavorite(slidingItem: ItemSliding, quoteData: any, title: string) {
@@ -134,27 +182,28 @@ export class QuotePage {
   //Start: Refresh
 
   doRefresh(refresher: Refresher) {
-    
+
     this.quoteData.getQuotes().subscribe((data: any) => {
       this.quotes = data;
       refresher.complete();
       const toast = this.toastCtrl.create({
-          message: 'Quotes have been updated.',
-          duration: 3000
-        });
-        toast.present();
+        message: 'Quotes have been updated.',
+        duration: 3000
+      });
+      toast.present();
     });
   }
 
 
   openSocial(network: string, fab: FabContainer) {
-    if(network=="Twitter"){
+    if (network == "Twitter") {
       this.socialSharing.shareViaTwitter("Download Motivation Pyramid to View Add Share motivational speakers, videos and quotes.", undefined, undefined);
-    }else if(network=="Facebook"){
+    } else if (network == "Facebook") {
       this.socialSharing.shareViaFacebook("Download Motivation Pyramid to View Add Share motivational speakers, videos and quotes.", undefined, undefined);
     }
 
     fab.close();
+    //TODO: Remove this commented line
     /*let loading = this.loadingCtrl.create({
       content: `Posting to ${network}`,
       duration: (Math.random() * 1000) + 500

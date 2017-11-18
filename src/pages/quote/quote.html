@@ -19,7 +19,7 @@
 
   <ion-list #scheduleList>
 
-  <ion-item-sliding *ngFor="let quote of quotes" #slidingItem>
+  <ion-item-sliding *ngFor="let quote of loadeditemList" #slidingItem>
 
         <button ion-item (click)="goToQuoteDetail(quote)">
           <h3>{{quote.quote}}</h3>
@@ -41,6 +41,10 @@
       </ion-item-sliding>
 
       </ion-list>
+
+      <ion-infinite-scroll (ionInfinite)="onInfiniteScroll($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+       </ion-infinite-scroll>
     <!--<ion-list>
       <ion-item class="text" *ngFor="let item of quotes | async">
          {{item.title}}
