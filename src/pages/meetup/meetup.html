@@ -11,7 +11,8 @@
 
 <ion-content>
   <ion-list>
-    <ion-list-header>My Meetups</ion-list-header>
+    <ion-list-header>All Meetups</ion-list-header>
+    <ion-list-header *ngIf="(meetupList | async)?.length===0">Start creating meetups and share with the world!</ion-list-header>
     <ion-item-sliding *ngFor="let meetup of meetupList | async">
       <ion-item>
         <ion-icon name="chatboxes" danger item-left></ion-icon>
