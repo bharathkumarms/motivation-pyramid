@@ -19138,37 +19138,37 @@
 }
 ],
 "speaker": [{
-    "id":1,
-    "name":"Tony Robbins",
-    "gender":"M",
-    "shortintro":"Tony Robbins (February 29, 1960) is an American author, entrepreneur, philanthropist and life coach. Robbins is known for his infomercials, seminars, and self-help books including Unlimited Power and Awaken the Giant Within. Approximately 4 million people have attended his live seminars.",
-    "twitter":"https://twitter.com/TonyRobbins",
-    "email":"NA",
-    "phone":"NA",
-    "updatedon":"19-Aug-2017",
-    "username":"v.bharathkumar@gmail.com"
+  "id":1,
+  "name":"Tony Robbins",
+  "gender":"M",
+  "shortintro":"Tony Robbins (February 29, 1960) is an American author, entrepreneur, philanthropist and life coach. Robbins is known for his infomercials, seminars, and self-help books including Unlimited Power and Awaken the Giant Within. Approximately 4 million people have attended his live seminars.",
+  "twitter":"TonyRobbins",
+  "email":"NA",
+  "phone":"NA",
+  "updatedon":"19-Aug-2017",
+  "username":"v.bharathkumar@gmail.com"
 },
 {
-    "id":2,
-    "name":"Shiv Khera",
-    "gender":"M",
-    "shortintro":"Shiv Khera is an Indian author of self-help books, including You Can Win, and an activist. He launched a movement against caste-based reservation in India.",
-    "twitter":"https://twitter.com/theshivkhera",
-    "email":"NA",
-    "phone":"NA",
-    "updatedon":"19-Aug-2017",
-    "username":"v.bharathkumar@gmail.com"
+  "id":2,
+  "name":"Shiv Khera",
+  "gender":"M",
+  "shortintro":"Shiv Khera is an Indian author of self-help books, including You Can Win, and an activist. He launched a movement against caste-based reservation in India.",
+  "twitter":"theshivkhera",
+  "email":"NA",
+  "phone":"NA",
+  "updatedon":"19-Aug-2017",
+  "username":"v.bharathkumar@gmail.com"
 },
 {
-    "id":3,
-    "name":"Suze Orman",
-    "gender":"F",
-    "shortintro":"Susan Lynn 'Suze' Orman is an American author, financial advisor, motivational speaker, and television host. She earned a degree in social work then worked as a financial advisor for Merrill Lynch.",
-    "twitter":"https://twitter.com/suzeormanshow",
-    "email":"NA",
-    "phone":"NA",
-    "updatedon":"19-Aug-2017",
-    "username":"v.bharathkumar@gmail.com"
+  "id":3,
+  "name":"Suze Orman",
+  "gender":"F",
+  "shortintro":"Susan Lynn 'Suze' Orman is an American author, financial advisor, motivational speaker, and television host. She earned a degree in social work then worked as a financial advisor for Merrill Lynch.",
+  "twitter":"suzeormanshow",
+  "email":"NA",
+  "phone":"NA",
+  "updatedon":"19-Aug-2017",
+  "username":"v.bharathkumar@gmail.com"
 }
 ]
 }
