@@ -32,8 +32,8 @@ export class AddMeetupPage {
             subTitle: 'Please correct the data entered.',
             buttons: ['Dismiss']
         });
-
-        if (name === undefined || address === undefined || phone === undefined || city === undefined) {
+        if (name === undefined || address === undefined || phone === undefined || city === undefined || 
+            name === "" || address === "" || phone === "" || city === "") {
             alert.present();
 
         } else {
