@@ -1,11 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.conferenceapp" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Ionic Conference</name>
+<widget id="js.motivationpyramid" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Motivation Pyramid</name>
     <description>
-        An Ionic Framework application for the Ionic Conference.
+        Everybody needs motivation. Thousands of motivation quote in your hands.
+        View motivational quotes, videos, recommend speakers, add meetups.
+        View, share, tweet on motivational speakers.
+        Know someone? Share trainers, inspirational speakers and performance coach details with the world.
   </description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
+    <author email="v.bharathkumar@gmail.com" href="https://twitter.com/vbharathkumar">
+      Bharathkumar V
   </author>
     <content src="index.html" />
     <access origin="*" />
