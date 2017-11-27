@@ -10,7 +10,7 @@
   <ion-slides #slides (ionSlideWillChange)="onSlideChangeStart($event)" pager>
 
     <ion-slide>
-      <img src="assets/img/ica-slidebox-img-1.png" class="slide-image"/>
+      <img src="assets/img/ica-slidebox-img-1.png" class="slide-image" />
       <h2 class="slide-title">
         <b>Motivation Pyramid</b>
       </h2>
@@ -20,26 +20,30 @@
     </ion-slide>
 
     <ion-slide>
-      <img src="assets/img/ica-slidebox-img-2.png" class="slide-image"/>
-      <h2 class="slide-title" >View Motivational Quote</h2>
-      <p><b>Everybody</b> needs motivation. Thousands of motivation quote in your hands.</p>
+      <img src="assets/img/ica-slidebox-img-2.png" class="slide-image" />
+      <h2 class="slide-title">View Motivational Quote</h2>
+      <p>
+        <b>Everybody</b> needs motivation. Thousands of motivation quote in your hands.</p>
     </ion-slide>
 
     <ion-slide>
-      <img src="assets/img/ica-slidebox-img-3.jpg" class="slide-image"/>
+      <img src="assets/img/ica-slidebox-img-3.jpg" class="slide-image" />
       <h2 class="slide-title">Share your motivational speaker</h2>
-      <p><b>View,</b> share, tweet on motivational speakers.</p>
+      <p>
+        <b>View,</b> share, tweet on motivational speakers.</p>
     </ion-slide>
 
     <ion-slide>
-      <img src="assets/img/ica-slidebox-img-4.png" class="slide-image"/>
-      <h1>Your Account Matters</h1>
-      <h2 class="slide-title">Know someone? Share trainers, inspirational speakers and performance coach details with the world through support view. Let others benefit too.</h2>
-      <button ion-button icon-end large clear (click)="startApp()">
-        Continue
-        <ion-icon name="arrow-forward"></ion-icon>
+      <img src="assets/img/ica-slidebox-img-4.png" class="slide-image" />
+      <h1>Integration in your hands</h1>
+      <button ion-button color="primary" (click)="startApp()">
+        Continue To App
       </button>
+      <h2 class="slide-title">Know someone? Share trainers, inspirational speakers and performance coach details with the world through support view.
+        Let others benefit too.</h2>
+      <ion-buttons>
+        <button ion-button (click)="startApp()" color="primary">Continue To App</button>
+      </ion-buttons>
     </ion-slide>
-
   </ion-slides>
 </ion-content>
