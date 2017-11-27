@@ -205,9 +205,9 @@ export class QuotePage {
 
   openSocial(network: string, fab: FabContainer) {
     if (network == "Twitter") {
-      this.socialSharing.shareViaTwitter("Download Motivation Pyramid to View Add Share motivational speakers, videos and quotes.", undefined, undefined);
+      this.socialSharing.shareViaTwitter("Download Motivation Pyramid to View Add Share motivational speakers, videos and quotes. https://play.google.com/store/apps/details?id=js.motivationpyramid", undefined, undefined);
     } else if (network == "Facebook") {
-      this.socialSharing.shareViaFacebook("Download Motivation Pyramid to View Add Share motivational speakers, videos and quotes.", undefined, undefined);
+      this.socialSharing.shareViaFacebook("Download Motivation Pyramid to View Add Share motivational speakers, videos and quotes. https://play.google.com/store/apps/details?id=js.motivationpyramid", undefined, undefined);
     }
 
     fab.close();

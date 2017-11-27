@@ -14,7 +14,7 @@ export class MeetupPage {
       
     let alert = this.alertCtrl.create({
       title: 'Meet People',
-      subTitle: 'Press add button in top left to create meetup.',
+      subTitle: 'Press add button in top right to create meetup.',
       buttons: ['Dismiss']
     });
 
