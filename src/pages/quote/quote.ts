@@ -25,7 +25,7 @@ export class QuotePage {
   segment = 'all';
   loader: any;
 
-  limit: number = 10;
+  limit: number = 25;
   itemRef: FirebaseListObservable<any[]>;
   itemList: any;
   loadeditemList: any;
@@ -79,7 +79,7 @@ export class QuotePage {
   }
 
   onInfiniteScroll($event: any) {
-    this.limit += 10;
+    this.limit += 25;
     this.getData();
     this.itemRef.forEach((itemList: any) => {
       let items: any = [];
