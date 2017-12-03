@@ -10,7 +10,7 @@
     <author email="v.bharathkumar@gmail.com" href="https://twitter.com/vbharathkumar">
       Bharathkumar V
   </author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.43.49:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -95,6 +95,7 @@
     <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
+    <allow-navigation href="http://192.168.43.49:8100" />
     <engine name="browser" spec="~5.0.1" />
     <engine name="ios" spec="~4.5.4" />
     <engine name="android" spec="~6.3.0" />
