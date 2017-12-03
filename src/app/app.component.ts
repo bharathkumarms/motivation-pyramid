@@ -131,8 +131,9 @@ export class ConferenceApp {
    pushObject.on('notification').subscribe((notification: any) => {
      if(notification.additionalData.foreground){
        let youralert = this.alertController.create({
-         title: 'New push notification',
-         message: notification.message
+         title: "Motivate Today",
+         message: notification.message,
+         buttons: ['Dismiss']
        });
        youralert.present();
      }
