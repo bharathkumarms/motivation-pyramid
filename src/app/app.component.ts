@@ -131,7 +131,7 @@ export class ConferenceApp {
    pushObject.on('notification').subscribe((notification: any) => {
      if(notification.additionalData.foreground){
        let youralert = this.alertController.create({
-         title: "Motivate Today",
+         title: "Weekly Motivation",
          message: notification.message,
          buttons: ['Dismiss']
        });
