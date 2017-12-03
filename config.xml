@@ -113,4 +113,7 @@
     <plugin name="cordova-plugin-wkwebview-engine" spec="https://github.com/ionic-team/cordova-plugin-wkwebview-engine.git" />
     <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
     <plugin name="cordova-plugin-inappbrowser" spec="^1.7.2" />
+    <plugin name="phonegap-plugin-push" spec="~2.1.1">
+        <variable name="SENDER_ID" value="809324056873" />
+    </plugin>
 </widget>

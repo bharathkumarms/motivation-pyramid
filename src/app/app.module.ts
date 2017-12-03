@@ -47,6 +47,8 @@ import {FIREBASE_CONFIG} from './app.config.firebase';
 
 import { SocialSharing } from '@ionic-native/social-sharing';
 
+import { Push } from '@ionic-native/push';
+
 @NgModule({
   declarations: [
     ConferenceApp,
@@ -132,7 +134,8 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     UserData,
     InAppBrowser,
     SplashScreen,
-    SocialSharing
+    SocialSharing,
+    Push
   ]
 })
 export class AppModule { }

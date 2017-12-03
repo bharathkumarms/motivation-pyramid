@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { Events, MenuController, Nav, Platform } from 'ionic-angular';
+import { Events, MenuController, Nav, Platform, AlertController } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Storage } from '@ionic/storage';
@@ -27,6 +27,8 @@ import { MotivationSpeakerData } from '../providers/motivation-speaker-data';
 import { SupportData } from '../providers/support-data';
 import { FavoriteData } from '../providers/favorite-data';
 import { UserData } from '../providers/user-data';
+
+import { Push, PushObject, PushOptions } from '@ionic-native/push';
 
 export interface PageInterface {
   title: string;
@@ -79,7 +81,9 @@ export class ConferenceApp {
     public supportData: SupportData,
     public favoriteData: FavoriteData,
     public storage: Storage,
-    public splashScreen: SplashScreen
+    public splashScreen: SplashScreen,
+    public push: Push,
+    public alertController: AlertController
   ) {
 
     // Check if the user has already seen the tutorial
@@ -103,6 +107,40 @@ export class ConferenceApp {
     this.enableMenu(true);
 
     this.listenToLoginEvents();
+
+    this.pushSetup();
+  }
+
+  pushSetup(){
+    const options: PushOptions = {
+      android: {
+      },
+      ios: {
+          alert: 'true',
+          badge: true,
+          sound: 'false'
+      },
+      windows: {},
+      browser: {
+          pushServiceURL: 'http://push.api.phonegap.com/v1/push'
+      }
+   };
+   
+   const pushObject: PushObject = this.push.init(options);
+   
+   pushObject.on('notification').subscribe((notification: any) => {
+     if(notification.additionalData.foreground){
+       let youralert = this.alertController.create({
+         title: 'New push notification',
+         message: notification.message
+       });
+       youralert.present();
+     }
+   });
+   
+   pushObject.on('registration').subscribe((registration: any) => console.log('Device registered '+ registration));
+   
+   pushObject.on('error').subscribe(error => console.log('Error with Push plugin '+ error));
   }
 
   openPage(page: PageInterface) {
